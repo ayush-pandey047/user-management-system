@@ -1,0 +1,23 @@
+module.exports = {
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+    rootDir: './',
+    testMatch: ['<rootDir>/src/tests/**/*.test.ts'],
+    setupFiles: ['<rootDir>/src/tests/setup.ts'],
+    moduleNameMapper: {
+      '^@config/(.*)$': '<rootDir>/src/config/$1',
+      '^@controllers/(.*)$': '<rootDir>/src/controllers/$1',
+      '^@services/(.*)$': '<rootDir>/src/services/$1',
+      '^@repositories/(.*)$': '<rootDir>/src/repositories/$1',
+      '^@routes/(.*)$': '<rootDir>/src/routes/$1',
+      '^@middlewares/(.*)$': '<rootDir>/src/middlewares/$1',
+      '^@validators/(.*)$': '<rootDir>/src/validators/$1',
+      '^@dtos/(.*)$': '<rootDir>/src/dtos/$1',
+      '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+      '^@constants/(.*)$': '<rootDir>/src/constants/$1',
+      '^@exceptions/(.*)$': '<rootDir>/src/exceptions/$1',
+      '^@docs/(.*)$': '<rootDir>/src/docs/$1',
+    },
+    clearMocks: true,
+    testTimeout: 15000,
+  };

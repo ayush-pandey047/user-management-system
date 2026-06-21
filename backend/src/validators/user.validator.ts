@@ -9,7 +9,7 @@ export const createUserSchema = z.object({
     secondaryMobile: z.string().regex(REGEX.MOBILE, 'Secondary mobile must be exactly 10 digits').optional().nullable(),
     aadhaar: z.string().regex(REGEX.AADHAAR, 'Aadhaar must be exactly 12 digits'),
     pan: z.string().regex(REGEX.PAN, 'PAN must match format ABCDE1234F'),
-    dateOfBirth: z.coerce.date({ errorMap: () => ({ message: 'Invalid date of birth' }) }),
+    dateOfBirth: z.coerce.date().refine((date) => !isNaN(date.getTime()), { message: 'Invalid date of birth' }),
     placeOfBirth: z.string().min(2).max(150),
     currentAddress: z.string().min(5, 'Current address is too short'),
     permanentAddress: z.string().min(5, 'Permanent address is too short'),

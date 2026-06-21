@@ -9,7 +9,8 @@ export const createUser = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const getUserById = asyncHandler(async (req: Request, res: Response) => {
-  const user = await userService.getUserById(req.params.id);
+  const userId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const user = await userService.getUserById(userId);
   return ApiResponse.success(res, user, 'User fetched successfully');
 });
 
@@ -20,12 +21,14 @@ export const getAllUsers = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const updateUser = asyncHandler(async (req: Request, res: Response) => {
-  const user = await userService.updateUser(req.params.id, req.body);
+  const userId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const user = await userService.updateUser(userId, req.body);
   return ApiResponse.success(res, user, 'User updated successfully');
 });
 
 export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
-  await userService.deleteUser(req.params.id);
+  const userId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  await userService.deleteUser(userId);
   return ApiResponse.success(res, null, 'User deleted successfully');
 });
 
