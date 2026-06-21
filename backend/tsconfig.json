@@ -38,6 +38,6 @@
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true
     },
-    "include": ["src/**/*.ts", "prisma/**/*.ts", "../frontend/src/constants/index.ts", "../frontend/src/types/user.types.ts"],
+    "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "dist", "src/tests"]
   }
