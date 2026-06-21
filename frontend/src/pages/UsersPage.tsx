@@ -78,16 +78,18 @@ const UsersPage = () => {
         </Button>
       </div>
 
-      <form onSubmit={handleSearch} className="flex gap-2 mb-4 max-w-sm">
-        <Input
-          placeholder="Search by name or email..."
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <Button type="submit" variant="secondary">
-          <Search size={16} />
-        </Button>
-      </form>
+      <form onSubmit={handleSearch} className="flex gap-2 mb-5 max-w-sm">
+        <div className="relative flex-1">
+            <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <Input
+            placeholder="Search by name or email..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="pl-9"
+            />
+        </div>
+         <Button type="submit" variant="secondary">Search</Button>
+     </form>
 
       <div className="border border-border rounded-lg overflow-hidden">
         <Table>
