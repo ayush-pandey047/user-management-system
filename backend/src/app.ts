@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import { errorHandler, notFoundHandler } from '@middlewares/errorHandler';
-import userRoutes from '@routes/user.routes';
+import userRoutes from './routes/user.routes';
 
 const app: Application = express();
 
@@ -13,6 +13,9 @@ app.use(cors({ origin: '*', credentials: true }));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+import swaggerUi from 'swagger-ui-express';
+
+import { swaggerSpec } from './docs/swagger';
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -22,6 +25,8 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api/v1/users', userRoutes);
 
