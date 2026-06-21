@@ -12,9 +12,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { userFormSchema, UserFormValues } from '@/schemas/user.schema';
+import { userFormSchema } from '@/schemas/user.schema';
+import type { UserFormValues } from '@/schemas/user.schema';
 import { useCreateUser, useUpdateUser } from '@/hooks/useUsers';
-import { User } from '@/types/user.types';
+import type { User } from '@/types/user.types';
 
 interface Props {
   open: boolean;

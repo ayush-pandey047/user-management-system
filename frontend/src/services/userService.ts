@@ -1,5 +1,5 @@
 import axiosInstance from '@/api/axiosInstance';
-import {
+import type {
   User,
   CreateUserPayload,
   UpdateUserPayload,

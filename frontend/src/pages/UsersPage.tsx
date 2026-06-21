@@ -10,7 +10,7 @@ import { Plus, Pencil, Trash2, Search, ArrowUpDown, Users as UsersIcon } from 'l
 import { useUsers } from '@/hooks/useUsers';
 import UserFormDialog from '@/components/UserFormDialog';
 import DeleteUserDialog from '@/components/DeleteUserDialog';
-import { User } from '@/types/user.types';
+import type { User } from '@/types/user.types';
 
 const UsersPage = () => {
   const [page, setPage] = useState(1);

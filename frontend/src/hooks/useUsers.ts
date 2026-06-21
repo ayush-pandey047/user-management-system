@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { userService, GetUsersParams } from '@/services/userService';
-import { CreateUserPayload, UpdateUserPayload } from '@/types/user.types';
+import { userService } from '@/services/userService';
+import type { GetUsersParams } from '@/services/userService';
+import type { CreateUserPayload, UpdateUserPayload } from '@/types/user.types';
 import { toast } from 'sonner';
 
 export const useUsers = (params: GetUsersParams) => {
