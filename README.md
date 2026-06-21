@@ -159,10 +159,10 @@ npm test
 ![Main_Page](./user_management.png)
 
 ### Dashboard
-![Dashboard](./dashboard.png)
+![Dashboard](./dashboard_page.png)
 
 ### Users Table
-![Users Table](./users_page.png)
+![Users Table](./user_page.png)
 
 
 
