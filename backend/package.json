@@ -15,6 +15,9 @@
     "test:watch": "jest --watch",
     "lint": "echo \"add eslint later\""
   },
+  "engines": {
+    "node": "20.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
