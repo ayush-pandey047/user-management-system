@@ -19,7 +19,7 @@ A production-grade full-stack User Management System built with Node.js, Express
 
 ## Tech Stack
 
-**Backend:** Node.js, Express, TypeScript, Prisma ORM, MySQL, Zod, Winston, Jest, Supertest, Swagger
+**Backend:** Node.js, Express, TypeScript, Prisma ORM, PostgreSQL (Supabase), Zod, Winston, Jest, Supertest, Swagger
 **Frontend:** React, TypeScript, Vite, React Router, Axios, React Hook Form, Zod, TanStack Query, Tailwind CSS v4, ShadCN UI
 
 ## Folder Structure
@@ -91,16 +91,18 @@ cd user-management-system/backend && npm install
 cd ../frontend && npm install
 ```
 
-### 2. MySQL setup
-```sql
-CREATE DATABASE user_management;
-```
+### 2. Database setup (Supabase PostgreSQL)
+
+1. Create a project at supabase.com
+2. Go to Project Settings → Database → Connection String → copy the **Session Pooler** string (port 5432, host `aws-0-<region>.pooler.supabase.com`)
 
 ### 3. Environment variables
 
 `backend/.env`:
 
-DATABASE_URL="mysql://root:YOUR_PASSWORD@localhost:3306/user_management"
+DATABASE_URL="postgresql://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres"
+
+DIRECT_URL="postgresql://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres"
 
 PORT=5001
 
@@ -152,6 +154,16 @@ Full interactive docs at `/api-docs`.
 cd backend
 npm test
 ```
+
+## Deployment
+
+- **Database:** Supabase (PostgreSQL) — Session Pooler connection (not Transaction Pooler, which breaks Prisma's prepared statements)
+- **Backend:** Render (free tier) — Node 20 pinned via `.node-version`, build command: `npm ci --include=dev && npx prisma generate && npm run build`
+- **Frontend:** Vercel — root directory `frontend`, env var `VITE_API_BASE_URL` pointing to the Render backend URL
+
+Live URLs:
+- Backend: https://user-management-system-4-1or6.onrender.com
+- Frontend:(https://user-management-system-ixtt.vercel.app)
 
 ## Screenshots
 
