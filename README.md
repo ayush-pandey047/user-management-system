@@ -155,7 +155,16 @@ npm test
 
 ## Screenshots
 
-_Add screenshots here: Dashboard, Users table, Add User modal, Delete confirmation._
+### User Management
+![Main_Page](./user_management.png)
+
+### Dashboard
+![Dashboard](./dashboard.png)
+
+### Users Table
+![Users Table](./users_page.png)
+
+
 
 ## License
 
