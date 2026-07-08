@@ -1,6 +1,6 @@
 # User Management System
 
-A production-grade full-stack User Management System built with Node.js, Express, TypeScript, Prisma, MySQL on the backend and React, TypeScript, Vite, Tailwind CSS, ShadCN UI on the frontend.
+A production-grade full-stack User Management System built with Node.js, Express, TypeScript, Prisma, Postgres on the backend and React, TypeScript, Vite, Tailwind CSS, ShadCN UI on the frontend.
 
 ## Features
 
